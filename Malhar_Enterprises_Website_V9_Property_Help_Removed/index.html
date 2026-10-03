@@ -1,0 +1,1051 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Malhar Enterprises – All Financial Services in Vadodara">
+  <title>Malhar Enterprises | All Financial Services</title>
+  <link rel="icon" href="assets/malhar-logo.png">
+  <style>
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      overflow-x: hidden
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #102236;
+      background: #f4f8fb
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit
+    }
+
+    .container {
+      width: min(1180px, 92%);
+      margin: auto
+    }
+
+    .top {
+      background: #041322;
+      color: #cfe1ef;
+      padding: 9px;
+      font-size: 13px
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: #fff;
+      border-bottom: 1px solid #dce7ee
+    }
+
+    .navin {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px
+    }
+
+    .brand img {
+      width: 58px;
+      height: 58px;
+      object-fit: contain;
+      display: block
+    }
+
+    .brand b {
+      font-size: 18px
+    }
+
+    .brand small {
+      display: block;
+      color: #10b8a5;
+      letter-spacing: 1px
+    }
+
+    .links {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      font-size: 14px;
+      font-weight: 700
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 17px;
+      border: 0;
+      border-radius: 12px;
+      font-weight: 800;
+      cursor: pointer
+    }
+
+    .primary {
+      background: #10b8a5;
+      color: #fff
+    }
+
+    .dark {
+      background: #071a2f;
+      color: #fff
+    }
+
+    .outline {
+      border: 1px solid #dce7ee;
+      background: #fff;
+      color: #102236
+    }
+
+    .hero .outline {
+      color: #102236
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #06172a, #0c3858 60%, #078b80);
+      color: #fff;
+      padding: 75px 0;
+      overflow: hidden
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 45px;
+      align-items: center
+    }
+
+    .eyebrow {
+      color: #67e2d6;
+      font-weight: 800;
+      letter-spacing: 2px;
+      font-size: 12px
+    }
+
+    .hero h1 {
+      font-size: 58px;
+      line-height: 1.04;
+      margin: 17px 0
+    }
+
+    .hero p {
+      color: #c6d8e6;
+      line-height: 1.75;
+      font-size: 17px
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 25px
+    }
+
+    .hero-card {
+      padding: 30px;
+      border: 1px solid #ffffff33;
+      border-radius: 28px;
+      background: #ffffff17;
+      backdrop-filter: blur(12px)
+    }
+
+    .hero-card img {
+      display: block;
+      width: 145px;
+      height: 145px;
+      object-fit: contain;
+      margin: auto;
+      filter: invert(1) brightness(1.8)
+    }
+
+    .hero-card h2 {
+      text-align: center
+    }
+
+    .hero-card p {
+      text-align: center;
+      font-size: 13px
+    }
+
+    .mini-rates {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .mini-rates div {
+      padding: 13px;
+      border: 1px solid #ffffff24;
+      border-radius: 14px;
+      background: #ffffff12
+    }
+
+    .mini-rates small {
+      display: block;
+      color: #b8cedc
+    }
+
+    .mini-rates b {
+      font-size: 16px
+    }
+
+    section {
+      padding: 75px 0
+    }
+
+    .head {
+      display: flex;
+      justify-content: space-between;
+      gap: 25px;
+      align-items: end;
+      margin-bottom: 30px
+    }
+
+    .head h2 {
+      font-size: 40px;
+      margin: 7px 0
+    }
+
+    .head p {
+      max-width: 600px;
+      color: #687b8c;
+      line-height: 1.7
+    }
+
+    .pill {
+      color: #087f75;
+      background: #e5faf7;
+      padding: 7px 10px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800
+    }
+
+    .grid4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 17px
+    }
+
+    .card,
+    .calc,
+    .contact-card {
+      background: #fff;
+      border: 1px solid #dce7ee;
+      border-radius: 20px;
+      padding: 22px
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 18px 60px #071a2f1f
+    }
+
+    .icon {
+      font-size: 25px;
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: #e8faf7;
+      display: grid;
+      place-items: center
+    }
+
+    .card h3 {
+      margin: 15px 0 7px
+    }
+
+    .card p {
+      color: #687b8c;
+      font-size: 13px;
+      line-height: 1.6
+    }
+
+    .rates,
+    .contact {
+      background: #071a2f;
+      color: #fff
+    }
+
+    .rates .head p {
+      color: #adc1ce
+    }
+
+    .rate-grid,
+    .props {
+      display: grid;
+      width: 100%;
+      min-width: 0;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px
+    }
+
+    .rate-card {
+      background: #0d2a47;
+      border: 1px solid #23445e;
+      padding: 22px;
+      border-radius: 20px
+    }
+
+    .rate-card small {
+      color: #9eb4c4
+    }
+
+    .rate-card h3 {
+      margin: 8px 0
+    }
+
+    .rate-card strong {
+      font-size: 26px;
+      color: #67e2d6
+    }
+
+    .rate-card em {
+      display: block;
+      margin-top: 7px;
+      color: #a9bdca;
+      font-size: 12px
+    }
+
+    .calcs,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px
+    }
+
+    .field {
+      margin: 18px 0
+    }
+
+    .field label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px
+    }
+
+    .field input {
+      width: 100%;
+      accent-color: #10b8a5
+    }
+
+    .amount-input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 1px solid #dce7ee;
+      border-radius: 10px;
+      font: inherit;
+      font-weight: 700;
+      color: #102236;
+      margin: 0 0 9px;
+      background: #fff
+    }
+
+    .amount-input:focus {
+      outline: 2px solid #10b8a533;
+      border-color: #10b8a5
+    }
+
+    .result {
+      background: #eefaf8;
+      border: 1px solid #c8eee8;
+      padding: 18px;
+      border-radius: 15px
+    }
+
+    .result b {
+      font-size: 28px
+    }
+
+    .prop {
+      background: #fff;
+      min-width: 0;
+      border: 1px solid #dce7ee;
+      border-radius: 20px;
+      overflow: hidden
+    }
+
+    .prop img {
+      width: 100%;
+      height: 215px;
+      object-fit: cover
+    }
+
+    .prop-body {
+      padding: 20px
+    }
+
+    .tag {
+      background: #e7faf7;
+      color: #087f75;
+      padding: 6px 8px;
+      border-radius: 8px;
+      font-size: 10px;
+      font-weight: 800
+    }
+
+    .prop h3 {
+      margin: 12px 0 5px
+    }
+
+    .prop p {
+      color: #687b8c;
+      font-size: 13px
+    }
+
+    .contact-card {
+      color: #102236
+    }
+
+    .contact-row {
+      padding: 12px 0;
+      border-bottom: 1px solid #dce7ee;
+      font-size: 14px
+    }
+
+    .contact-row small {
+      display: block;
+      color: #687b8c;
+      margin-top: 3px
+    }
+
+    .form {
+      display: grid;
+      gap: 11px
+    }
+
+    .form input,
+    .form select,
+    .form textarea {
+      padding: 13px;
+      border: 1px solid #dce7ee;
+      border-radius: 10px;
+      font: inherit
+    }
+
+    .form textarea {
+      min-height: 100px
+    }
+
+    .footer {
+      background: #041322;
+      color: #a9bdca;
+      padding: 25px 0;
+      font-size: 12px
+    }
+
+    .wa {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #20c767;
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 25px;
+      z-index: 50
+    }
+
+    .prop {
+      position: relative
+    }
+
+    .prop-gallery {
+      position: relative;
+      height: 215px;
+      background: #dfe8ed;
+      overflow: hidden
+    }
+
+    .prop-gallery img {
+      width: 100%;
+      height: 215px;
+      object-fit: cover;
+      display: none;
+      cursor: pointer
+    }
+
+    .prop-gallery img.active {
+      display: block
+    }
+
+    .gbtn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border: 0;
+      border-radius: 50%;
+      background: #ffffffdd;
+      color: #071a2f;
+      font-size: 20px;
+      font-weight: 900;
+      cursor: pointer;
+      z-index: 3
+    }
+
+    .gprev {
+      left: 12px
+    }
+
+    .gnext {
+      right: 12px
+    }
+
+    .gcount {
+      position: absolute;
+      right: 12px;
+      bottom: 12px;
+      background: #071a2fcc;
+      color: #fff;
+      padding: 6px 9px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 800;
+      z-index: 3
+    }
+
+    .gdots {
+      position: absolute;
+      left: 50%;
+      bottom: 12px;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+      z-index: 3
+    }
+
+    .gdots span {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #ffffff99
+    }
+
+    .gdots span.active {
+      background: #fff
+    }
+
+    .gallery-modal {
+      position: fixed;
+      inset: 0;
+      background: #000c;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 25px
+    }
+
+    .gallery-modal.show {
+      display: flex
+    }
+
+    .gallery-box {
+      position: relative;
+      width: min(1000px, 94vw);
+      height: min(760px, 90vh);
+      display: flex;
+      align-items: center;
+      justify-content: center
+    }
+
+    .gallery-box img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 14px
+    }
+
+    .modal-close {
+      position: absolute;
+      right: -5px;
+      top: -5px;
+      width: 42px;
+      height: 42px;
+      border: 0;
+      border-radius: 50%;
+      font-size: 25px;
+      background: #fff;
+      cursor: pointer;
+      z-index: 5
+    }
+
+    .modal-prev,
+    .modal-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 46px;
+      height: 46px;
+      border: 0;
+      border-radius: 50%;
+      background: #fff;
+      color: #071a2f;
+      font-size: 24px;
+      font-weight: 900;
+      cursor: pointer
+    }
+
+    .modal-prev {
+      left: 5px
+    }
+
+    .modal-next {
+      right: 5px
+    }
+
+    @media(max-width:900px) {
+
+      .hero-grid,
+      .calcs,
+      .contact-grid {
+        grid-template-columns: 1fr
+      }
+
+      .grid4 {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .rate-grid,
+      .props {
+        grid-template-columns: repeat(2, 1fr)
+      }
+
+      .links {
+        display: none
+      }
+    }
+
+    @media(max-width:600px) {
+      .hero h1 {
+        font-size: 40px
+      }
+
+      .grid4,
+      .rate-grid,
+      .props {
+        grid-template-columns: 1fr
+      }
+
+      .head {
+        display: block
+      }
+
+      .head h2 {
+        font-size: 31px
+      }
+
+      .actions .btn {
+        width: 100%
+      }
+    }
+
+    /* V8 premium service icons */
+    .service-icon {
+      width: 78px !important;
+      height: 78px !important;
+      min-width: 78px;
+      border-radius: 22px !important;
+      padding: 15px !important;
+      object-fit: contain !important;
+      background: linear-gradient(135deg, #e8fbf8, #dff4ff) !important;
+      border: 1px solid #c9ebe7 !important;
+      box-shadow: 0 12px 28px rgba(10, 50, 80, .10) !important;
+      transition: transform .28s ease, box-shadow .28s ease !important;
+    }
+
+    .service-card:hover .service-icon {
+      transform: translateY(-6px) scale(1.06) rotate(-2deg);
+      box-shadow: 0 18px 36px rgba(10, 50, 80, .16) !important;
+    }
+
+    .service-card h3 {
+      font-size: 20px !important
+    }
+
+    @media(max-width:700px) {
+      .service-icon {
+        width: 68px !important;
+        height: 68px !important;
+        min-width: 68px;
+        padding: 13px !important
+      }
+    }
+
+    /* V10 premium service icons */
+    .card .icon {
+      width: 76px;
+      height: 76px;
+      font-size: 34px;
+      border-radius: 22px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #e8fbf8 0%, #eaf5ff 100%);
+      border: 1px solid #ccebe7;
+      box-shadow: 0 12px 28px rgba(10, 50, 80, .10);
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+
+    .card:hover .icon {
+      transform: translateY(-6px) scale(1.06);
+      box-shadow: 0 18px 38px rgba(10, 50, 80, .16);
+    }
+
+    .card h3 {
+      font-size: 19px
+    }
+
+    @media(max-width:600px) {
+      .card .icon {
+        width: 68px;
+        height: 68px;
+        font-size: 30px;
+        border-radius: 19px
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <div class="container">Vadodara, Gujarat • Loans • Insurance • Property • CSC</div>
+  </div>
+  <nav class="nav">
+    <div class="container navin"><a class="brand" href="#"><img src="assets/malhar-logo.png">
+        <div><b>MALHAR ENTERPRISES</b><small>ALL FINANCIAL SERVICES</small></div>
+      </a>
+      <div class="links"><a href="#services">Services</a><a href="#rates">Rates</a><a
+          href="#calculator">Calculator</a><a href="#property">Property</a><a href="#contact">Contact</a><a
+          class="btn primary" href="https://wa.me/919106634067" target="_blank">WhatsApp</a></div>
+    </div>
+  </nav>
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">LOANS • INSURANCE • REAL ESTATE • CSC</div>
+        <h1>Finance your plans. Move forward.</h1>
+        <p>Malhar Enterprises helps you explore suitable loan, insurance and property solutions with simple, transparent
+          guidance from Vadodara.</p>
+        <div class="actions"><a class="btn primary" href="#contact">Check Eligibility →</a><a class="btn outline"
+            href="#property">Explore Property</a></div>
+      </div>
+      <div class="hero-card"><img src="assets/malhar-logo.png">
+        <h2>Your local finance partner</h2>
+        <p>One place for financial and property assistance.</p>
+        <div class="mini-rates" id="miniRates"></div>
+      </div>
+    </div>
+  </header>
+  <section id="services">
+    <div class="container">
+      <div class="head">
+        <div><span class="pill">OUR SERVICES</span>
+          <h2>Everything under one roof.</h2>
+        </div>
+        <p>Loan, insurance, property brokerage and CSC assistance — with a guided process.</p>
+      </div>
+      <div class="grid4">
+        <div class="card">
+          <div class="icon">🏠</div>
+          <h3>Home Loan</h3>
+          <p>Home purchase, construction and eligible housing finance assistance.</p>
+        </div>
+        <div class="card">
+          <div class="icon">💳</div>
+          <h3>Personal Loan</h3>
+          <p>Unsecured finance options for eligible personal needs.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🏢</div>
+          <h3>Business Loan</h3>
+          <p>Finance options for business expansion and eligible needs.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🔑</div>
+          <h3>Mortgage / LAP</h3>
+          <p>Loan against eligible property, subject to lender assessment.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🚗</div>
+          <h3>Car Loan</h3>
+          <p>New or eligible vehicle finance assistance.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🎓</div>
+          <h3>Education Loan</h3>
+          <p>Guidance for eligible higher education finance.</p>
+        </div>
+        <div class="card">
+          <div class="icon">❤️</div>
+          <h3>Health Insurance</h3>
+          <p>Understand and compare applicable health cover options.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🛡️</div>
+          <h3>Vehicle Insurance</h3>
+          <p>Motor insurance assistance for eligible vehicles.</p>
+        </div>
+        <div class="card">
+          <div class="icon">👨‍👩‍👧</div>
+          <h3>Life Insurance</h3>
+          <p>Protection and savings-oriented insurance options.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🏘️</div>
+          <h3>Property Buy / Sell</h3>
+          <p>Brokerage assistance for selected residential and commercial property.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🏬</div>
+          <h3>Commercial Property</h3>
+          <p>Support for shops and commercial spaces.</p>
+        </div>
+        <div class="card">
+          <div class="icon">🖥️</div>
+          <h3>CSC Centre</h3>
+          <p>Assistance with eligible digital citizen services.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="rates" id="rates">
+    <div class="container">
+      <div class="head">
+        <div><span class="pill">CUSTOMER RATE GUIDE</span>
+          <h2>Loan rates at a glance.</h2>
+        </div>
+        <p>Indicative ranges only. Final pricing is decided by the respective lender based on profile, credit, income,
+          tenure, security and policy.</p>
+      </div>
+      <div class="rate-grid" id="rateGrid"></div>
+      <p style="font-size:12px;color:#9eb4c4;margin-top:18px">Rates shown are indicative customer-facing ranges and may
+        change. Final rate, eligibility, fees and terms depend on the respective lender/provider.</p>
+    </div>
+  </section>
+  <section id="calculator">
+    <div class="container">
+      <div class="head">
+        <div><span class="pill">SMART TOOL</span>
+          <h2>Plan your EMI.</h2>
+        </div>
+        <p>Use this for an indicative estimate before discussing your requirement.</p>
+      </div>
+      <div class="calcs">
+        <div class="calc">
+          <h3>EMI Calculator</h3>
+          <div class="field"><label>Loan Amount <b>₹<span id="amtV"></span></b></label><input id="amtInput"
+              class="amount-input" type="number" min="100000" max="10000000" step="1000" value="2000000"
+              inputmode="numeric" placeholder="Enter loan amount"><input id="amt" type="range" min="100000"
+              max="10000000" step="1000" value="2000000"></div>
+          <div class="field"><label>Interest Rate <b><span id="rateV"></span>%</b></label><input id="rateInput"
+              class="amount-input" type="number" min="5" max="25" step=".25" value="9" inputmode="decimal"
+              placeholder="Enter interest rate"><input id="rate" type="range" min="5" max="25" step=".25" value="9">
+          </div>
+          <div class="field"><label>Tenure <b><span id="tenV"></span> years</b></label><input id="tenInput"
+              class="amount-input" type="number" min="1" max="30" step="1" value="20" inputmode="numeric"
+              placeholder="Enter tenure"><input id="ten" type="range" min="1" max="30" value="20"></div>
+          <div class="result">Estimated monthly EMI<br><b id="emi"></b></div>
+        </div>
+        <div class="calc">
+          <h3>Loan Eligibility Calculator</h3>
+          <p style="color:#687b8c;line-height:1.6;margin-top:0">Enter your approximate monthly income and existing EMI.
+            This gives an indicative estimate only; actual eligibility is decided by the lender.</p>
+          <div class="field"><label>Monthly Income <b>₹<span id="incomeV"></span></b></label><input id="incomeInput"
+              class="amount-input" type="number" min="10000" max="1000000" step="1000" value="50000" inputmode="numeric"
+              placeholder="Enter monthly income"><input id="income" type="range" min="10000" max="1000000" step="1000"
+              value="50000"></div>
+          <div class="field"><label>Existing Monthly EMI <b>₹<span id="existingV"></span></b></label><input
+              id="existingInput" class="amount-input" type="number" min="0" max="500000" step="1000" value="5000"
+              inputmode="numeric" placeholder="Enter existing EMI"><input id="existing" type="range" min="0"
+              max="500000" step="1000" value="5000"></div>
+          <div class="field"><label>Interest Rate <b><span id="eligRateV"></span>%</b></label><input id="eligRateInput"
+              class="amount-input" type="number" min="5" max="25" step=".25" value="9" inputmode="decimal"><input
+              id="eligRate" type="range" min="5" max="25" step=".25" value="9"></div>
+          <div class="field"><label>Tenure <b><span id="eligTenV"></span> years</b></label><input id="eligTenInput"
+              class="amount-input" type="number" min="1" max="30" step="1" value="20" inputmode="numeric"><input
+              id="eligTen" type="range" min="1" max="30" value="20"></div>
+          <div class="result">Indicative eligible loan amount<br><b id="eligibleLoan"></b><small
+              style="display:block;color:#687b8c;margin-top:6px">Illustration assumes up to 50% of monthly income can be
+              used for total EMI.</small></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section style="background:#eef4f7" id="property">
+    <div class="container">
+      <div class="head">
+        <div><span class="pill">REAL ESTATE</span>
+          <h2>Buy, sell or find a property.</h2>
+        </div>
+        <p>Brokerage assistance for selected homes, shops and commercial properties in and around Vadodara.</p>
+      </div>
+      <div class="props" id="properties"></div>
+    </div>
+  </section>
+  <section class="contact" id="contact">
+    <div class="container contact-grid">
+      <div><span class="pill">CONTACT</span>
+        <h2 style="font-size:42px">Let's discuss your requirement.</h2>
+        <p style="color:#b9cdda;line-height:1.7">Send an enquiry for a loan, insurance, property or CSC service.</p>
+        <div class="contact-card">
+          <div class="contact-row">📞 <b>63546 35369</b><small>Primary contact</small></div>
+          <div class="contact-row">📞 <b>91066 34067</b><small>WhatsApp / contact</small></div>
+          <div class="contact-row">✉️ <b>malharenterprise7@gmail.com</b><small>Email</small></div>
+          <div class="contact-row">📍 <b>FF-13 Ratnam Heights-2</b><small>New VIP Road, Near D-Mart, Khodiyar Nagar,
+              Vadodara, Gujarat 390019</small></div>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3>Quick Enquiry</h3>
+        <form class="form" id="enquiryForm" onsubmit="sendWA(event)" novalidate><input id="name" required maxlength="20"
+            minlength="1" pattern="[A-Za-z ]{1,20}" autocomplete="name" placeholder="Your name (max 20 letters)"><input
+            id="phone" required maxlength="10" minlength="10" pattern="[0-9]{10}" inputmode="numeric" autocomplete="tel"
+            placeholder="10-digit mobile number"><select id="service">
+            <option>Home Loan</option>
+            <option>Personal Loan</option>
+            <option>Business Loan</option>
+            <option>Mortgage / LAP</option>
+            <option>Car Loan</option>
+            <option>Education Loan</option>
+            <option>Insurance</option>
+            <option>Property Buy / Sell</option>
+            <option>CSC Centre</option>
+          </select><textarea id="msg" placeholder="Your requirement"></textarea><button class="btn primary">Send on
+            WhatsApp →</button></form>
+      </div>
+    </div>
+  </section>
+  <div class="gallery-modal" id="galleryModal" onclick="if(event.target===this)closeGallery()">
+    <div class="gallery-box"><button class="modal-close" onclick="closeGallery()">×</button><button class="modal-prev"
+        onclick="modalMove(-1)">‹</button><img id="modalImage" src="" alt="Property photo"
+        onerror="imgFallback(this)"><button class="modal-next" onclick="modalMove(1)">›</button><span id="modalCount"
+        style="position:absolute;bottom:8px;left:50%;transform:translateX(-50%);background:#000b;color:#fff;padding:7px 12px;border-radius:20px;font-size:12px"></span>
+    </div>
+  </div>
+  <footer class="footer">
+    <div class="container">© 2026 Malhar Enterprises • Indicative rates only • Final approval/terms subject to provider
+      policies.</div>
+  </footer><a class="wa" href="https://wa.me/919106634067" target="_blank">◉</a>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+
+    window.imgFallback = function (img) {
+    img.onerror = null;
+    img.src = "data:image/svg+xml;charset=UTF-8," + encodeURIComponent(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700"><rect width="100%" height="100%" fill="#e8eef4"/><text x="50%" y="50%" text-anchor="middle" font-size="30" fill="#526579">Image unavailable</text></svg>'
+    );
+};
+  </script>
+  <script src="supabase-config.js"></script>
+  <script>
+    
+    const defaultRates = [{ "id": "home", "name": "Home Loan", "rate": "7.25% – 20%", "note": "Indicative p.a.", "icon": "🏠" }, { "id": "personal", "name": "Personal Loan", "rate": "10% – 24%", "note": "Indicative p.a.", "icon": "💳" }, { "id": "business", "name": "Business Loan", "rate": "10% – 24%", "note": "Indicative p.a.", "icon": "🏢" }, { "id": "mortgage", "name": "Mortgage / LAP", "rate": "8.5% – 18%", "note": "Indicative p.a.", "icon": "🔑" }, { "id": "car", "name": "Car Loan", "rate": "7.25% – 15%", "note": "Indicative p.a.", "icon": "🚗" }, { "id": "education", "name": "Education Loan", "rate": "8% – 15%", "note": "Indicative p.a.", "icon": "🎓" }], defaultProps = [{ "id": 1, "title": "Premium 2 & 3 BHK Homes", "location": "Vadodara", "type": "Residential", "status": "For Sale", "price": "Contact for Price", "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=85" }, { "id": 2, "title": "Ready-to-Move Apartments", "location": "New VIP Road, Vadodara", "type": "Residential", "status": "For Sale", "price": "Contact for Price", "image": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85" }, { "id": 3, "title": "Shop / Commercial Space", "location": "Khodiyar Nagar, Vadodara", "type": "Commercial", "status": "Buy / Sell", "price": "Contact for Price", "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1200&q=85" }];
+    function read(k, f) { try { const x = localStorage.getItem(k); return x ? JSON.parse(x) : f } catch (e) { return f } }
+    const sbReady = !!(window.supabase && window.MALHAR_SUPABASE_URL && !window.MALHAR_SUPABASE_URL.includes("YOUR_PROJECT") && window.MALHAR_SUPABASE_ANON_KEY && !window.MALHAR_SUPABASE_ANON_KEY.includes("YOUR_SUPABASE"));
+    const sb = sbReady ? window.supabase.createClient(window.MALHAR_SUPABASE_URL, window.MALHAR_SUPABASE_ANON_KEY) : null;
+    function safe(v) { return String(v ?? "").replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])) }
+    let liveProps = defaultProps.map(p => ({ ...p, images: p.images || [p.image] }));
+    function renderRates(rs = defaultRates) { rateGrid.innerHTML = rs.map(r => `<div class="rate-card"><small>INDICATIVE</small><h3>${safe(r.icon || "")} ${safe(r.name)}</h3><strong>${safe(r.rate)}</strong><em>${safe(r.note)}</em></div>`).join(""); miniRates.innerHTML = rs.slice(0, 4).map(r => `<div><small>${safe(r.name)}</small><b>${safe(r.rate)}</b></div>`).join("") }
+    function renderProps(ps = liveProps) { liveProps = ps; properties.innerHTML = ps.map((p, i) => { const imgs = (p.images && p.images.length ? p.images : [p.image]).filter(Boolean); return `<div class="prop"><div class="prop-gallery" data-gallery="${i}">${imgs.map((im, j) => `<img src="${safe(im)}" class="${j === 0 ? "active" : ""}" alt="Property image ${j + 1}" onerror="imgFallback(this)" onclick="openGallery(${i},${j})">`).join("")}${imgs.length > 1 ? `<button class="gbtn gprev" onclick="event.stopPropagation();moveProp(${i},-1)">‹</button><button class="gbtn gnext" onclick="event.stopPropagation();moveProp(${i},1)">›</button><span class="gcount">📷 ${imgs.length} Photos</span><div class="gdots">${imgs.map((_, j) => `<span class="${j === 0 ? "active" : ""}"></span>`).join("")}</div>` : ""}</div><div class="prop-body"><span class="tag">${safe(p.status)}</span><h3>${safe(p.title)}</h3><p>${safe(p.location)} • ${safe(p.type)}<br>${safe(p.price || "")}</p></div></div>` }).join("") }
+    async function loadLiveContent() { if (!sb) return; try { const [pr, rr] = await Promise.all([sb.from("properties").select("id,title,description,property_type,location,price,photos,is_published,created_at").eq("is_published", true).order("created_at", { ascending: false }), sb.from("loan_rates").select("id,name,rate,note,icon,sort_order").order("sort_order")]); if (!pr.error) renderProps((pr.data || []).map(x => ({ id: x.id, title: x.title, location: x.location || "Vadodara", type: x.property_type || "Residential", status: "For Sale", price: x.price == null ? "Contact for Price" : String(x.price), images: x.photos || [] }))); if (!rr.error && rr.data?.length) renderRates(rr.data) } catch (e) { console.warn("Supabase content unavailable; displaying default content.", e) } }
+    function moveProp(i, dir) {
+      const box = document.querySelector(`[data-gallery="${i}"]`); if (!box) return;
+      const imgs = [...box.querySelectorAll("img")], dots = [...box.querySelectorAll(".gdots span")];
+      let cur = imgs.findIndex(x => x.classList.contains("active")); cur = (cur + dir + imgs.length) % imgs.length;
+      imgs.forEach((x, j) => x.classList.toggle("active", j === cur)); dots.forEach((x, j) => x.classList.toggle("active", j === cur));
+    }
+    let modalIndex = 0, modalPhotos = [];
+    function openGallery(i, j) {
+      const p = liveProps[i] || defaultProps[i];
+      modalPhotos = (p.images && p.images.length ? p.images : [p.image]).filter(Boolean);
+      modalIndex = j || 0; document.getElementById("galleryModal").classList.add("show"); updateModal();
+    }
+    function updateModal() { document.getElementById("modalImage").src = modalPhotos[modalIndex] || ""; document.getElementById("modalCount").textContent = (modalIndex + 1) + " / " + modalPhotos.length }
+    function modalMove(d) { if (!modalPhotos.length) return; modalIndex = (modalIndex + d + modalPhotos.length) % modalPhotos.length; updateModal() }
+    function closeGallery() { document.getElementById("galleryModal").classList.remove("show") }
+    function calc() {
+      const P = +amt.value, R = +rate.value / 1200, N = +ten.value * 12;
+      const e = R ? P * R * Math.pow(1 + R, N) / (Math.pow(1 + R, N) - 1) : P / N;
+      amtV.textContent = P.toLocaleString("en-IN"); rateV.textContent = rate.value; tenV.textContent = ten.value;
+      emi.textContent = "₹" + Math.round(e).toLocaleString("en-IN");
+    }
+    function calcEligibility() {
+      const income = +document.getElementById("income").value;
+      const existing = +document.getElementById("existing").value;
+      const R = +document.getElementById("eligRate").value / 1200;
+      const N = +document.getElementById("eligTen").value * 12;
+      const maxTotalEmi = income * 0.50;
+      const availableEmi = Math.max(0, maxTotalEmi - existing);
+      const loan = R ? availableEmi * (Math.pow(1 + R, N) - 1) / (R * Math.pow(1 + R, N)) : availableEmi * N;
+      document.getElementById("incomeV").textContent = income.toLocaleString("en-IN");
+      document.getElementById("existingV").textContent = existing.toLocaleString("en-IN");
+      document.getElementById("eligRateV").textContent = document.getElementById("eligRate").value;
+      document.getElementById("eligTenV").textContent = document.getElementById("eligTen").value;
+      document.getElementById("eligibleLoan").textContent = "₹" + Math.round(loan).toLocaleString("en-IN");
+    }
+    function syncPair(rangeId, inputId) {
+      const r = document.getElementById(rangeId), n = document.getElementById(inputId);
+      r.addEventListener("input", () => { n.value = r.value; calc(); });
+      n.addEventListener("input", () => { let v = Number(n.value); if (!Number.isFinite(v)) return; v = Math.min(Number(r.max), Math.max(Number(r.min), v)); r.value = v; calc(); });
+    }
+    function syncEligibilityPair(rangeId, inputId) {
+      const r = document.getElementById(rangeId), n = document.getElementById(inputId);
+      r.addEventListener("input", () => { n.value = r.value; calcEligibility(); });
+      n.addEventListener("input", () => { let v = Number(n.value); if (!Number.isFinite(v)) return; v = Math.min(Number(r.max), Math.max(Number(r.min), v)); r.value = v; calcEligibility(); });
+    }
+    syncPair("amt", "amtInput"); syncPair("rate", "rateInput"); syncPair("ten", "tenInput");
+    syncEligibilityPair("income", "incomeInput"); syncEligibilityPair("existing", "existingInput"); syncEligibilityPair("eligRate", "eligRateInput"); syncEligibilityPair("eligTen", "eligTenInput");
+    renderRates(); renderProps(); loadLiveContent(); calc(); calcEligibility();
+
+    const nameInput = document.getElementById("name");
+    const phoneInput = document.getElementById("phone");
+
+    nameInput.addEventListener("input", () => {
+      nameInput.value = nameInput.value.replace(/[^A-Za-z ]/g, "").replace(/\s{2,}/g, " ").slice(0, 20);
+    });
+    phoneInput.addEventListener("input", () => {
+      phoneInput.value = phoneInput.value.replace(/\D/g, "").slice(0, 10);
+    });
+
+    function sendWA(e) {
+      e.preventDefault();
+      const nm = nameInput.value.trim();
+      const ph = phoneInput.value.trim();
+      if (!/^[A-Za-z ]{1,20}$/.test(nm)) {
+        alert("Name me sirf alphabets aur spaces allowed hain, maximum 20 characters.");
+        nameInput.focus(); return;
+      }
+      if (!/^\d{10}$/.test(ph)) {
+        alert("Mobile number exactly 10 digits ka hona chahiye.");
+        phoneInput.focus(); return;
+      }
+      const t = `Hello Malhar Enterprises,%0AName: ${encodeURIComponent(nm)}%0AMobile: ${encodeURIComponent(ph)}%0AService: ${encodeURIComponent(service.value)}%0ARequirement: ${encodeURIComponent(msg.value)}`;
+      open("https://wa.me/919106634067?text=" + t, "_blank");
+    }
+  </script>
+</body>
+
+</html>

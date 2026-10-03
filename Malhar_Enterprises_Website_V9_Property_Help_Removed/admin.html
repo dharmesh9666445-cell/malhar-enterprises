@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Malhar Enterprises — Secure Admin</title>
+    <style>
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: #eef3f7;
+            color: #102236;
+            font: 15px Arial, sans-serif
+        }
+
+        .wrap {
+            width: min(1100px, 94%);
+            margin: 28px auto
+        }
+
+        .top {
+            background: #071a2f;
+            color: white;
+            padding: 18px
+        }
+
+        .panel {
+            background: white;
+            border: 1px solid #dce7ee;
+            border-radius: 16px;
+            padding: 22px;
+            margin: 18px 0
+        }
+
+        .form {
+            display: grid;
+            gap: 12px;
+            max-width: 500px
+        }
+
+        .form input,
+        .form textarea,
+        .form select {
+            padding: 12px;
+            border: 1px solid #cbd8e2;
+            border-radius: 9px;
+            font: inherit;
+            width: 100%
+        }
+
+        button,
+        .btn {
+            padding: 11px 15px;
+            border: 0;
+            border-radius: 9px;
+            background: #0aa996;
+            color: white;
+            font-weight: bold;
+            cursor: pointer
+        }
+
+        .secondary {
+            background: #e9eff3;
+            color: #102236
+        }
+
+        .danger {
+            background: #bb3333
+        }
+
+        .muted {
+            color: #607486
+        }
+
+        .hide {
+            display: none
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 14px
+        }
+
+        .item {
+            border: 1px solid #dce7ee;
+            border-radius: 12px;
+            padding: 14px
+        }
+
+        .item input,
+        .item textarea,
+        .item select {
+            width: 100%;
+            padding: 9px;
+            margin: 5px 0;
+            border: 1px solid #cbd8e2;
+            border-radius: 8px
+        }
+
+        .row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center
+        }
+
+        .status {
+            padding: 10px;
+            background: #f1f7f8;
+            border-radius: 8px;
+            margin: 12px 0;
+            white-space: pre-wrap
+        }
+
+        .warn {
+            background: #fff4d6;
+            border: 1px solid #ebd18b;
+            padding: 13px;
+            border-radius: 10px;
+            line-height: 1.5
+        }
+
+        @media(max-width:600px) {
+            .panel {
+                padding: 15px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top">
+        <div class="wrap" style="margin:0 auto"><b>MALHAR ENTERPRISES</b> — SECURE ADMIN <a href="index.html"
+                style="float:right;color:white">View website</a></div>
+    </header>
+    <main class="wrap">
+        <div class="warn">Admin access is enforced by Supabase Authentication and Row Level Security. Keep your password
+            private. Do not add a service-role/secret key to these files. Configure your project URL and publishable key
+            in <code>supabase-config.js</code>.</div>
+        <section class="panel" id="login">
+            <h2>Admin Login</h2>
+            <form class="form" id="loginForm"><input id="email" type="email" value="dharmesh9666445@gmail.com" required
+                    autocomplete="username"><input id="password" type="password" placeholder="Supabase admin password"
+                    required autocomplete="current-password"><button type="submit">Sign in</button></form>
+            <div id="loginMsg" class="status" aria-live="polite"></div>
+        </section>
+        <section id="dashboard" class="hide">
+            <div class="panel row">
+                <div style="flex:1">
+                    <h2>Website Management</h2>
+                    <p class="muted" id="who"></p>
+                </div><button class="secondary" id="refresh">Refresh</button><button class="danger" id="logout">Sign
+                    out</button>
+            </div>
+            <div class="panel">
+                <h2>Loan Rates</h2>
+                <div id="rates" class="grid"></div>
+                <div class="row"><button id="saveRates">Save Rates</button><button class="secondary"
+                        id="resetRates">Restore default rates</button></div>
+            </div>
+            <div class="panel">
+                <h2>Property Listings</h2>
+                <div id="props" class="grid"></div>
+                <div class="row" style="margin-top:14px"><button id="addProp">+ Add Property</button></div>
+            </div>
+        </section>
+        <div class="status" id="appMsg" aria-live="polite"></div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script>
+        const ADMIN = 'dharmesh9666445@gmail.com', defaults = [{ id: 'home', name: 'Home Loan', rate: '7.25% – 20%', note: 'Indicative p.a.', icon: '🏠', sort_order: 1 }, { id: 'personal', name: 'Personal Loan', rate: '10% – 24%', note: 'Indicative p.a.', icon: '💳', sort_order: 2 }, { id: 'business', name: 'Business Loan', rate: '10% – 24%', note: 'Indicative p.a.', icon: '🏢', sort_order: 3 }, { id: 'mortgage', name: 'Mortgage / LAP', rate: '8.5% – 18%', note: 'Indicative p.a.', icon: '🔑', sort_order: 4 }, { id: 'car', name: 'Car Loan', rate: '7.25% – 15%', note: 'Indicative p.a.', icon: '🚗', sort_order: 5 }, { id: 'education', name: 'Education Loan', rate: '8% – 15%', note: 'Indicative p.a.', icon: '🎓', sort_order: 6 }];
+        const configured = window.supabase && window.MALHAR_SUPABASE_URL && !window.MALHAR_SUPABASE_URL.includes('YOUR_PROJECT') && window.MALHAR_SUPABASE_ANON_KEY && !window.MALHAR_SUPABASE_ANON_KEY.includes('YOUR_SUPABASE'); const client = configured ? window.supabase.createClient(window.MALHAR_SUPABASE_URL, window.MALHAR_SUPABASE_ANON_KEY) : null; let rateRows = [], propertyRows = [];
+        const $ = id => document.getElementById(id), msg = t => $('appMsg').textContent = t; function esc(v) { return String(v ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])) }
+        function showDash(user) { $('login').classList.add('hide'); $('dashboard').classList.remove('hide'); $('who').textContent = 'Signed in as ' + user.email }
+        async function checkSession() { if (!client) { $('loginMsg').textContent = 'Setup required: add Supabase Project URL and publishable key to supabase-config.js, then reload.'; return } const { data } = await client.auth.getSession(); if (data.session) { if (data.session.user.email?.toLowerCase() === ADMIN) { showDash(data.session.user); await loadAll() } else { await client.auth.signOut(); $('loginMsg').textContent = 'This account is not authorized.' } } }
+        $('loginForm').addEventListener('submit', async e => { e.preventDefault(); if (!client) { $('loginMsg').textContent = 'Please configure Supabase URL and publishable key first.'; return } const { data, error } = await client.auth.signInWithPassword({ email: $('email').value.trim(), password: $('password').value }); if (error) { $('loginMsg').textContent = error.message; return } if (data.user.email?.toLowerCase() !== ADMIN) { await client.auth.signOut(); $('loginMsg').textContent = 'This account is not authorized.'; return } showDash(data.user); $('loginMsg').textContent = ''; await loadAll() });
+        async function loadAll() { msg('Loading database...'); const { data: rr, error: re } = await client.from('loan_rates').select('*').order('sort_order'); if (re) { msg('Rates table setup required. Run the supplied SQL file in Supabase SQL Editor. ' + re.message); return } rateRows = rr || []; if (!rateRows.length) rateRows = defaults; renderRates(); const { data: pp, error: pe } = await client.from('properties').select('*').order('created_at', { ascending: false }); if (pe) { msg('Could not load properties: ' + pe.message); return } propertyRows = pp || []; renderProps(); msg('Connected. Changes save to Supabase.'); }
+        function renderRates() { $('rates').innerHTML = rateRows.map((r, i) => `<div class="item"><b>${esc(r.icon)} ${esc(r.name)}</b><input data-rate="${i}" value="${esc(r.rate)}" aria-label="Rate"><input data-note="${i}" value="${esc(r.note)}" aria-label="Note"></div>`).join('') }
+        $('saveRates').onclick = async () => { if (!client) return; const vals = [...document.querySelectorAll('[data-rate]')]; const updated = vals.map((el, i) => ({ ...rateRows[i], rate: el.value.trim(), note: document.querySelector('[data-note="' + i + '"]').value.trim() })); for (const r of updated) { const { error } = await client.from('loan_rates').upsert({ id: r.id, name: r.name, rate: r.rate, note: r.note, icon: r.icon, sort_order: r.sort_order }); if (error) { msg('Rate save failed: ' + error.message); return } } msg('Loan rates saved.'); await loadAll() };
+        $('resetRates').onclick = async () => { if (!confirm('Restore the default indicative rates?')) return; for (const r of defaults) { const { error } = await client.from('loan_rates').upsert(r); if (error) { msg(error.message); return } } await loadAll() };
+        function renderProps() { $('props').innerHTML = propertyRows.map((p, i) => `<div class="item"><b>Property</b><input data-field="title" data-i="${i}" placeholder="Title" value="${esc(p.title)}"><input data-field="location" data-i="${i}" placeholder="Location" value="${esc(p.location)}"><select data-field="property_type" data-i="${i}"><option ${p.property_type === 'Residential' ? 'selected' : ''}>Residential</option><option ${p.property_type === 'Commercial' ? 'selected' : ''}>Commercial</option></select><input data-field="price" data-i="${i}" placeholder="Price in INR (numbers only; leave blank for contact)" value="${esc(p.price ?? '')}"><textarea data-field="description" data-i="${i}" placeholder="Description">${esc(p.description)}</textarea><textarea data-field="photos" data-i="${i}" placeholder="One image URL per line">${esc((p.photos || []).join('\n'))}</textarea><label><input type="checkbox" data-published="${i}" ${p.is_published ? 'checked' : ''}> Published on website</label><div class="row"><button onclick="saveProperty(${i})">Save</button><button class="danger" onclick="deleteProperty(${i})">Delete</button></div></div>`).join('') }
+        window.saveProperty = async i => { const p = { ...propertyRows[i] }; document.querySelectorAll('[data-field][data-i="' + i + '"]').forEach(el => p[el.dataset.field] = el.dataset.field === 'photos' ? el.value.split(/\n+/).map(x => x.trim()).filter(Boolean) : el.value.trim()); p.photos = Array.isArray(p.photos) ? p.photos : []; p.is_published = document.querySelector('[data-published="' + i + '"]').checked; p.title = p.title || 'Untitled Property'; const rawPrice = String(p.price ?? '').trim(); if (rawPrice && !/^\d+(\.\d{1,2})?$/.test(rawPrice)) { msg('Price mein sirf numeric amount enter karein; contact for price ke liye blank chhodein.'); return } const record = { title: p.title, location: p.location, property_type: p.property_type, price: rawPrice ? Number(rawPrice) : null, description: p.description, photos: p.photos, is_published: p.is_published }; const result = p.id ? await client.from('properties').update(record).eq('id', p.id) : await client.from('properties').insert(record); if (result.error) { msg('Save failed: ' + result.error.message); return } msg('Property saved.'); await loadAll() };
+        window.deleteProperty = async i => { const p = propertyRows[i]; if (!p.id) { propertyRows.splice(i, 1); renderProps(); return } if (!confirm('Delete this property?')) return; const { error } = await client.from('properties').delete().eq('id', p.id); if (error) { msg(error.message); return } await loadAll() };
+        $('addProp').onclick = () => { propertyRows.unshift({ title: '', location: 'Vadodara', property_type: 'Residential', price: 'Contact for Price', description: '', photos: [], is_published: false }); renderProps() }; $('refresh').onclick = loadAll; $('logout').onclick = async () => { await client.auth.signOut(); $('dashboard').classList.add('hide'); $('login').classList.remove('hide'); msg('Signed out.') }; checkSession();
+    </script>
+</body>
+
+</html>
